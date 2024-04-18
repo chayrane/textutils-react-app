@@ -1,30 +1,29 @@
 import React, { useState } from "react";
+import { toTitleCase, toCapitalizeCase } from "../utils/textUtils";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
 
-  // Wrong way to change the state.
-  // text = "new text";
-
-  // Correct way to change text value
-  // setText("new text");
-
-  //   let wordCount = 0;
-  //   let charCount = 0;
-
-  const handleUpCaseClick = () => {
-    let newText = text.toUpperCase();
-    setText(newText);
+  const handleUpperCaseClick = () => {
+    setText(text.toUpperCase());
   };
 
-  const handleClearClick = () => {
-    let newText = "";
-    setText(newText);
+  const handleLowerCaseClick = () => {
+    // let newText = text.toLowerCase();
+    setText(text.toLowerCase());
   };
 
-  const handleLowCaseClick = () => {
-    let newText = text.toLowerCase();
-    setText(newText);
+  const handleCaitalizeCaseClick = () => {
+    setText(toCapitalizeCase());
+  };
+
+  const handleTitleCaseClick = () => {
+    setText(toTitleCase(text));
+  };
+
+  const handleExtraSpaces = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
   };
 
   const handleCopy = () => {
@@ -33,9 +32,8 @@ export default function TextForm(props) {
     navigator.clipboard.writeText(text.value);
   };
 
-  const handleExtraSpaces = () => {
-    let newText = text.split(/[ ]+/);
-    setText(newText.join(" "));
+  const handleClearClick = () => {
+    setText('');
   };
 
   // handling/updating changes made in textarea.
@@ -69,20 +67,29 @@ export default function TextForm(props) {
             }}
           ></textarea>
         </div>
-        <button className="btn btn-primary" onClick={handleUpCaseClick}>
-          Convert to Uppercase
+        <button className="btn btn-primary" onClick={handleUpperCaseClick}>
+          UPPER CASE
         </button>
-        <button className="btn btn-primary ms-3" onClick={handleLowCaseClick}>
-          Convert to Lowercase
+        <button className="btn btn-primary ms-1" onClick={handleLowerCaseClick}>
+          lower case
         </button>
-        <button className="btn btn-primary ms-3" onClick={handleClearClick}>
-          Clear Text
+        <button
+          className="btn btn-primary ms-1"
+          onClick={handleCaitalizeCaseClick}
+        >
+          Capitalize Case
         </button>
-        <button className="btn btn-primary ms-3" onClick={handleCopy}>
+        <button className="btn btn-primary ms-1" onClick={handleTitleCaseClick}>
+          Title Case
+        </button>
+        <button className="btn btn-primary ms-1" onClick={handleExtraSpaces}>
+          Remove Extra Spaces
+        </button>
+        <button className="btn btn-primary ms-1" onClick={handleCopy}>
           Copy Text
         </button>
-        <button className="btn btn-primary ms-3" onClick={handleExtraSpaces}>
-          Remove Extra Spaces
+        <button className="btn btn-primary ms-1" onClick={handleClearClick}>
+          Clear Text
         </button>
       </div>
       <div
