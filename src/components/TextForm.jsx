@@ -4,6 +4,7 @@ import {
   toCapitalizeCase,
   toAlternateCase,
 } from "../utils/textUtils";
+import { downloadToTxtFile } from '../utils/fileUtils'
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
@@ -34,7 +35,7 @@ export default function TextForm(props) {
   };
 
   const handleCopy = () => {
-    var text = document.getElementById("myBox");
+    var text = document.getElementById("textAreaInput");
     text.select();
     navigator.clipboard.writeText(text.value);
   };
@@ -42,6 +43,15 @@ export default function TextForm(props) {
   const handleClearClick = () => {
     setText("");
   };
+
+  const handleDownloadTextClick = () => {
+    saveTextAsFile();
+  };
+
+  function saveTextAsFile() {
+    var textToSave = document.getElementById("textAreaInput").value;
+    downloadToTxtFile(textToSave);
+}
 
   // handling/updating changes made in textarea.
   const handleOnChange = (event) => {
@@ -66,7 +76,7 @@ export default function TextForm(props) {
             value={text}
             onChange={handleOnChange}
             placeholder="Enter text here"
-            id="myBox"
+            id="textAreaInput"
             rows="8"
             style={{
               backgroundColor: props.mode === "light" ? "white" : "#303030",
@@ -103,6 +113,12 @@ export default function TextForm(props) {
         </button>
         <button className="btn btn-primary ms-1" onClick={handleClearClick}>
           Clear Text
+        </button>
+        <button
+          className="btn btn-primary ms-1"
+          onClick={handleDownloadTextClick}
+        >
+          Download Text
         </button>
       </div>
       <div
