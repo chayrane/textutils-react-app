@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { toTitleCase, toCapitalizeCase } from "../utils/textUtils";
+import {
+  toTitleCase,
+  toCapitalizeCase,
+  toAlternateCase,
+} from "../utils/textUtils";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
@@ -13,11 +17,15 @@ export default function TextForm(props) {
   };
 
   const handleCaitalizeCaseClick = () => {
-    setText(toCapitalizeCase());
+    setText(toCapitalizeCase(text));
   };
 
   const handleTitleCaseClick = () => {
     setText(toTitleCase(text));
+  };
+
+  const handleAlternateCaseClick = () => {
+    setText(toAlternateCase(text));
   };
 
   const handleExtraSpaces = () => {
@@ -32,7 +40,7 @@ export default function TextForm(props) {
   };
 
   const handleClearClick = () => {
-    setText('');
+    setText("");
   };
 
   // handling/updating changes made in textarea.
@@ -76,10 +84,16 @@ export default function TextForm(props) {
           className="btn btn-primary ms-1"
           onClick={handleCaitalizeCaseClick}
         >
-          Capitalize Case
+          Capitalize case
         </button>
         <button className="btn btn-primary ms-1" onClick={handleTitleCaseClick}>
           Title Case
+        </button>
+        <button
+          className="btn btn-primary ms-1"
+          onClick={handleAlternateCaseClick}
+        >
+          AlTeRnAtE Case
         </button>
         <button className="btn btn-primary ms-1" onClick={handleExtraSpaces}>
           Remove Extra Spaces
