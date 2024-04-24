@@ -69,6 +69,7 @@ export default function App() {
       {/* React Router DOM */}
       <Routes>
         <Route
+          exact
           path="/"
           element={
             <TextForm
@@ -78,8 +79,8 @@ export default function App() {
             />
           }
         />
-        <Route path="/about" element={<About mode={mode} />} />
-        <Route path="/text-editor" element={<TextEditor mode={mode} />} />
+        <Route exact path="/about" element={<About mode={mode} />} />
+        <Route exact path="/text-editor" element={<TextEditor mode={mode} />} />
       </Routes>
     </>
   );

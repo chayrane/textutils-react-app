@@ -7,11 +7,14 @@ export default function TextEditor(props) {
 
   return (
     <div>
-      <div
-        className="container mt-3"
-        style={{ color: props.mode === "light" ? "black" : "white" }}
-      >
-        <h1 className="mb-3">Text Editor</h1>
+      <div className="container mt-3">
+        <h1
+          className="mb-3"
+          style={{ color: props.mode === "light" ? "black" : "white" }}
+        >
+          Text Editor
+        </h1>
+
         <JoditEditor
           ref={editor}
           value={content}
