@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function About() {
+export default function About(props) {
   return (
-    <div className="container">
+    <div className="container" style={{ color: props.mode === "light" ? "black" : "white" }}>
       <h1 className="my-3">About Us</h1>
       <div class="accordion" id="accordionExample">
         <div class="accordion-item">

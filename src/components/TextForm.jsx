@@ -75,10 +75,10 @@ export default function TextForm(props) {
   return (
     <>
       <div
-        className="container"
+        className="container mt-3"
         style={{ color: props.mode === "light" ? "black" : "white" }}
       >
-        <h1>{props.heading}</h1>
+        <h1 className="mb-3">{props.heading}</h1>
         <div className="mb-3">
           <textarea
             className="form-control"

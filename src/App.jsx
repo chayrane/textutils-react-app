@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
 import { Routes, Route } from "react-router-dom";
+import TextEditor from "./components/TextEditor";
 
 export default function App() {
   // App's UI mode. (light or dark mode)
@@ -77,7 +78,8 @@ export default function App() {
             />
           }
         />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<About mode={mode} />} />
+        <Route path="/text-editor" element={<TextEditor mode={mode} />} />
       </Routes>
     </>
   );

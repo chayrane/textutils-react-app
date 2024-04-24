@@ -30,17 +30,19 @@ export default function NavBar(props) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/about" className="nav-link" >
+              <Link to="/about" className="nav-link">
                 About
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/text-formatting" className="nav-link" >
+              <Link to="/text-editor" className="nav-link">
                 Text Editor
               </Link>
             </li>
           </ul>
-          <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
+          <div
+            className={`form-check form-switch text-${ props.mode === "light" ? "dark" : "light" }`}
+          >
             <input
               className="form-check-input"
               type="checkbox"
@@ -52,7 +54,7 @@ export default function NavBar(props) {
               className="form-check-label"
               htmlFor="flexSwitchCheckDefault"
             >
-              {`Enable ${props.mode === 'light' ? 'dark' : 'light'} mode`}
+              {`Enable ${props.mode === "light" ? "dark" : "light"} mode`}
             </label>
           </div>
         </div>
